@@ -86,6 +86,29 @@ A comprehensive Next.js application that provides authentic IELTS speaking pract
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
+## 🚀 Deploy to Production
+
+### Quick Deploy to Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/uniqueskillslab/Qahe-English)
+
+### Manual Deployment Steps
+1. **Fork or Clone** this repository
+2. **Connect to Vercel**: Import your GitHub repository
+3. **Environment Variables**: Add `GITHUB_TOKEN` in Vercel dashboard
+4. **Deploy**: Automatic deployment with every push to main branch
+
+### Environment Variables for Production
+```env
+GITHUB_TOKEN=your_github_personal_access_token
+```
+
+**Get your GitHub Token:**
+- Go to [GitHub Settings → Personal Access Tokens](https://github.com/settings/tokens)
+- Generate new token (classic) - no special permissions needed
+- Copy and paste in Vercel environment variables
+
+📖 **Detailed Deployment Guide**: See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive instructions.
+
 ## 🎯 How to Use
 
 ### Speaking Practice
@@ -180,9 +203,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Next.js Team** - For the amazing React framework
 - **Vercel** - For deployment and hosting solutions
 
-## 🚀 Live Demo
+## 🚀 Live Demo & Deployment
 
-Visit the live application: [Your deployment URL]
+### Production Deployment
+🌐 **Deploy your own instance**: 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/uniqueskillslab/Qahe-English)
+
+### Quick Links
+- 📖 **Detailed Deployment Guide**: [DEPLOYMENT.md](./DEPLOYMENT.md)
+- 🛠️ **GitHub Repository**: [Qahe-English](https://github.com/uniqueskillslab/Qahe-English)
+- 🌍 **Live Demo**: [Coming Soon - Deploy Your Own!]
+
+### Deployment Platforms Supported
+- ✅ **Vercel** (Recommended) - Zero configuration deployment
+- ✅ **Netlify** - Alternative deployment option  
+- ✅ **Railway** - Full-stack deployment
+- ✅ **Docker** - Containerized deployment
 
 ---
 

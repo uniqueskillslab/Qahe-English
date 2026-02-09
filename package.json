@@ -1,12 +1,35 @@
 {
-  "name": "qahe",
-  "version": "0.1.0",
+  "name": "qahe-english",
+  "version": "1.0.0",
+  "description": "AI-Powered IELTS Speaking Practice Platform with Real-Time Analysis and Pronunciation Scoring",
   "private": true,
+  "homepage": "https://github.com/uniqueskillslab/Qahe-English",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uniqueskillslab/Qahe-English.git"
+  },
+  "author": "UniqueSkillsLab",
+  "license": "MIT",
+  "keywords": [
+    "IELTS",
+    "Speaking Practice",
+    "AI Analysis",
+    "English Learning",
+    "Pronunciation",
+    "Education",
+    "Next.js",
+    "TypeScript"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "build:analyze": "ANALYZE=true npm run build",
+    "vercel-build": "npm run build",
+    "sitemap": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
