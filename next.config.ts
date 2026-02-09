@@ -64,11 +64,6 @@ const nextConfig: NextConfig = {
   // TypeScript configuration
   typescript: {
     ignoreBuildErrors: false,
-  },
-  
-  // Disable telemetry for builds
-  telemetry: {
-    enabled: false
   }
 };
 

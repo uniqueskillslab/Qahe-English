@@ -397,18 +397,14 @@ function generateFallbackAnalysis(
   return {
     transcript,
     scores: {
-      fluencyCoherence: 6.0,
       lexicalResource: lexicalScore,
       grammaticalRange: grammaticalScore,
-      pronunciation: 6.0,
       overall: overallScore
     },
     feedback: {
-      fluencyCoherence: `Based on a ${speakingRate} words per minute pace over ${Math.round(duration)} seconds, your speech appears to maintain reasonable flow. ${goodPacing ? 'Your speaking rate is within the optimal range.' : 'Consider working on your speaking pace.'} Note: Detailed fluency analysis requires audio assessment.`,
       lexicalResource: `Your response shows ${hasComplexVocabulary ? 'good use of sophisticated vocabulary with some advanced terms' : 'adequate vocabulary range with room for more diverse expression'}. ${wordCount > 50 ? 'The length suggests good lexical development.' : 'Try to use more varied vocabulary to demonstrate range.'} ${appropriateLength ? 'Appropriate response length for IELTS Part ' + part + '.' : 'Consider expanding your response length.'}`,
       grammaticalRange: `Your writing demonstrates ${hasVariedSentences ? 'varied sentence structures which indicates good grammatical range' : 'room for improvement in sentence variety and complexity'}. ${transcript.length > 100 ? 'The response length allows for grammar assessment.' : 'Longer responses would better demonstrate grammatical range.'} Focus on using a mix of simple and complex sentence structures.`,
-      pronunciation: "Pronunciation assessment requires audio analysis. This score is estimated based on general IELTS standards.",
-      overallFeedback: `This ${overallScore >= 7 ? 'strong' : overallScore >= 6 ? 'competent' : 'developing'} response demonstrates ${overallScore >= 7 ? 'good command of English' : overallScore >= 6 ? 'adequate English skills' : 'basic English ability that needs development'}. ${!appropriateLength ? `For IELTS Part ${part}, aim for ${part === 1 ? '1-2 sentences per question' : part === 2 ? '1-2 minutes of detailed speaking' : 'substantial discussion with examples'}.` : ''} Continue practicing to maintain consistency across all IELTS criteria.`,
+      overallFeedback: `This ${overallScore >= 7 ? 'strong' : overallScore >= 6 ? 'competent' : 'developing'} response demonstrates ${overallScore >= 7 ? 'good command of English' : overallScore >= 6 ? 'adequate English skills' : 'basic English ability that needs development'}. ${!appropriateLength ? `For IELTS Part ${part}, aim for ${part === 1 ? '1-2 sentences per question' : part === 2 ? '1-2 minutes of detailed speaking' : 'substantial discussion with examples'}.` : ''} Based on a ${speakingRate} words per minute pace over ${Math.round(duration)} seconds, your speech appears to maintain reasonable flow. ${goodPacing ? 'Your speaking rate is within the optimal range.' : 'Consider working on your speaking pace.'} Continue practicing to maintain consistency across all IELTS criteria.`,
       improvementSuggestions: [
         'Practice with more complex vocabulary and idiomatic expressions',
         'Work on varying your sentence structures (simple, compound, complex)',
