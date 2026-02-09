@@ -1,36 +1,193 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QAHE English - IELTS Speaking Practice Platform
 
-## Getting Started
+🎯 **AI-Powered IELTS Speaking Practice with Real-Time Analysis**
 
-First, run the development server:
+A comprehensive Next.js application that provides authentic IELTS speaking practice with AI-powered scoring, pronunciation analysis, and personalized feedback. Practice all three IELTS speaking parts with official topics and get detailed band score assessments.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![IELTS Speaking Practice](https://img.shields.io/badge/IELTS-Speaking_Practice-blue)
+![Next.js](https://img.shields.io/badge/Next.js-14-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![AI Powered](https://img.shields.io/badge/AI-Powered-green)
+
+## 🌟 Features
+
+### 🎤 Complete IELTS Speaking Practice
+- **All 3 Parts Coverage**: Practice Part 1 (Introduction), Part 2 (Cue Cards), and Part 3 (Discussion)
+- **Authentic Topics**: 90+ official topics sourced from IELTS Liz including:
+  - 33+ Part 1 topics (Work, Study, Hometown, Hobbies, etc.)
+  - 29+ Part 2 cue cards (Describe a person, place, event, etc.)
+  - 27+ Part 3 discussion topics (Society, Technology, Education, etc.)
+- **Real Timing**: Authentic IELTS timing with preparation time for Part 2
+
+### 🤖 AI-Powered Analysis
+- **Detailed Band Scoring**: Get precise IELTS band scores (0.25 increments)
+  - Lexical Resource scoring
+  - Grammatical Range and Accuracy
+  - Overall band calculation
+- **Comprehensive Feedback**: Detailed analysis of your speaking performance
+- **Enhanced Versions**: AI generates improved versions of your responses
+- **Vocabulary Upgrades**: Suggestions for more sophisticated word choices
+
+### 🔊 Advanced Audio Features
+- **Real-time Recording**: Professional-quality audio capture
+- **Pronunciation Analysis**: Word-level pronunciation scoring
+- **Speech-to-Text**: Automatic transcription with accuracy assessment
+- **Audio Worklet Technology**: Advanced audio processing
+
+### 📊 Intelligent Assessment
+- **Relevance Detection**: Analyzes if responses address the topic
+- **Fluency Metrics**: Speech rate, pause analysis, filler word detection
+- **Improvement Guidance**: Specific, actionable suggestions for band score improvement
+- **Follow-up Questions**: Dynamic examiner-style follow-up questions
+
+### ✍️ Writing Practice (Bonus)
+- **IELTS Writing Tasks**: Task 1 (Academic & General) and Task 2 practice
+- **Multiple Topics**: Variety of writing prompts and question types
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- GitHub Personal Access Token (for AI analysis)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/uniqueskillslab/Qahe-English.git
+   cd Qahe-English
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Environment Setup**
+   Create a `.env.local` file in the root directory:
+   ```env
+   GITHUB_TOKEN=your_github_personal_access_token_here
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🎯 How to Use
+
+### Speaking Practice
+1. **Choose Your Part**: Select from IELTS Speaking Part 1, 2, or 3
+2. **Pick a Topic**: Choose from authentic IELTS topics
+3. **Record Your Response**: Use the built-in voice recorder
+4. **Get AI Analysis**: Receive detailed scoring and feedback
+5. **Review Enhancement**: See improved versions of your response
+6. **Practice Follow-ups**: Answer dynamic follow-up questions
+
+### Getting the Best Results
+- **Speak Clearly**: Ensure good audio quality for accurate analysis
+- **Stay On Topic**: Address the question directly for better scoring
+- **Use Examples**: Include personal examples and specific details
+- **Practice Regularly**: Consistent practice improves band scores
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 14, React, TypeScript
+- **Styling**: Tailwind CSS
+- **Audio Processing**: Audio Worklet API, Web Audio API
+- **AI Analysis**: GitHub Models API (GPT-4)
+- **Speech Processing**: Web Speech API
+- **Deployment**: Vercel-ready
+
+## 📁 Project Structure
+
+```
+qahe/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   │   ├── analyze-speech/    # Speech analysis endpoint
+│   │   ├── generate-followup/ # Follow-up questions
+│   │   ├── pronunciation-analysis/ # Pronunciation scoring
+│   │   └── speech-to-text/    # Transcription service
+│   ├── audio-worklet-demo/    # Audio worklet demo
+│   └── writing/           # Writing practice pages
+├── components/            # React components
+│   ├── VoiceRecorder.tsx      # Main recording component
+│   ├── ScoreDisplay.tsx       # Results display
+│   ├── TopicDisplay.tsx       # Topic selection
+│   └── Timer.tsx             # Practice timer
+├── data/                 # Static data
+│   └── ieltsTopics.ts        # IELTS topics and questions
+├── types/                # TypeScript definitions
+├── utils/                # Utility functions
+└── public/              # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 IELTS Band Scoring
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The platform provides authentic IELTS band scoring:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Band 9**: Expert user - fully operational command
+- **Band 8**: Very good user - fully operational with minor inaccuracies
+- **Band 7**: Good user - operational command with occasional inaccuracies
+- **Band 6**: Competent user - generally effective command
+- **Band 5**: Modest user - partial command with frequent problems
+- **Band 4**: Limited user - basic competence in familiar situations
 
-## Learn More
+## 🔧 API Endpoints
 
-To learn more about Next.js, take a look at the following resources:
+- `POST /api/analyze-speech` - Analyze recorded speech
+- `POST /api/speech-to-text` - Convert speech to text
+- `POST /api/generate-followup` - Generate follow-up questions
+- `POST /api/pronunciation-analysis` - Analyze pronunciation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-## Deploy on Vercel
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📧 Support
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you have any questions or need help:
+- Open an issue on GitHub
+- Contact: [Your contact information]
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **IELTS Liz** - For providing authentic IELTS speaking topics and questions
+- **GitHub Models** - For AI-powered speech analysis
+- **Next.js Team** - For the amazing React framework
+- **Vercel** - For deployment and hosting solutions
+
+## 🚀 Live Demo
+
+Visit the live application: [Your deployment URL]
+
+---
+
+**Built with ❤️ for IELTS learners worldwide**
+
+![GitHub stars](https://img.shields.io/github/stars/uniqueskillslab/Qahe-English)
+![GitHub forks](https://img.shields.io/github/forks/uniqueskillslab/Qahe-English)
+![GitHub issues](https://img.shields.io/github/issues/uniqueskillslab/Qahe-English)
