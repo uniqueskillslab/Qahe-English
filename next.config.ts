@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: []
-  },
+  // Enable Turbopack for faster builds (Next.js 16+)
+  turbopack: {},
+  
+  // External packages configuration (updated for Next.js 16)
+  serverExternalPackages: [],
   
   // Production optimizations
   poweredByHeader: false,
@@ -56,49 +58,17 @@ const nextConfig: NextConfig = {
     ];
   },
   
-  // Webpack optimizations
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-    
-    // Optimize bundle size
-    config.optimization.splitChunks = {
-      chunks: 'all',
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          priority: 10,
-          enforce: true,
-        },
-      },
-    };
-    
-    return config;
-  },
-  
-  // Build output optimization
+  // Build output optimization for Vercel
   output: 'standalone',
-  
-  // Environment variables that should be available in the browser
-  env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
-  },
   
   // TypeScript configuration
   typescript: {
     ignoreBuildErrors: false,
   },
   
-  // ESLint configuration  
-  eslint: {
-    ignoreDuringBuilds: false,
+  // Disable telemetry for builds
+  telemetry: {
+    enabled: false
   }
 };
 
