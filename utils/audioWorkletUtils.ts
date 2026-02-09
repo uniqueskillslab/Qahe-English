@@ -94,8 +94,8 @@ export class AudioWorkletRecorder {
         }
       };
 
-    } catch (error) {
-      throw new Error(`Failed to initialize audio worklet recorder: ${error.message}`);
+    } catch (error: any) {
+      throw new Error(`Failed to initialize audio worklet recorder: ${error?.message || 'Unknown error'}`);
     }
   }
 

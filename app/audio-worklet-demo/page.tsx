@@ -224,10 +224,6 @@ See /AUDIO_WORKLET_README.md for technical details.
                   <h3 className="text-lg font-semibold">Band Scores</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span>Fluency & Coherence:</span>
-                      <span className="font-bold text-blue-600">{analysis.scores.fluencyCoherence}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
                       <span>Lexical Resource:</span>
                       <span className="font-bold text-blue-600">{analysis.scores.lexicalResource}</span>
                     </div>
@@ -297,12 +293,6 @@ See /AUDIO_WORKLET_README.md for technical details.
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h2 className="text-2xl font-bold mb-6">Detailed Feedback</h2>
               <div className="space-y-6">
-                {analysis.feedback.fluencyCoherence && (
-                  <div>
-                    <h3 className="font-semibold text-blue-600 mb-2">Fluency & Coherence</h3>
-                    <p className="text-gray-700">{analysis.feedback.fluencyCoherence}</p>
-                  </div>
-                )}
                 {analysis.feedback.lexicalResource && (
                   <div>
                     <h3 className="font-semibold text-green-600 mb-2">Lexical Resource</h3>
@@ -315,10 +305,10 @@ See /AUDIO_WORKLET_README.md for technical details.
                     <p className="text-gray-700">{analysis.feedback.grammaticalRange}</p>
                   </div>
                 )}
-                {analysis.feedback.pronunciation && (
+                {analysis.feedback.overallFeedback && (
                   <div>
-                    <h3 className="font-semibold text-red-600 mb-2">Pronunciation</h3>
-                    <p className="text-gray-700">{analysis.feedback.pronunciation}</p>
+                    <h3 className="font-semibold text-blue-600 mb-2">Overall Feedback</h3>
+                    <p className="text-gray-700">{analysis.feedback.overallFeedback}</p>
                   </div>
                 )}
               </div>

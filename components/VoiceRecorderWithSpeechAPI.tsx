@@ -420,7 +420,7 @@ export default function VoiceRecorderWithSpeechAPI({
       }
 
       if (transcript.trim()) {
-        onGetImmediateResult(transcript, duration);
+        onGetImmediateResult?.(transcript, duration);
       } else {
         setError('No speech detected. Please try speaking more clearly.');
       }
@@ -437,7 +437,7 @@ export default function VoiceRecorderWithSpeechAPI({
   useEffect(() => {
     // Wait for Puter.js to load
     const checkPuter = () => {
-      if (typeof window !== 'undefined' && window.puter && window.puter.ai && window.puter.ai.speech2txt) {
+      if (typeof window !== 'undefined' && window.puter && window.puter.ai && typeof window.puter.ai.speech2txt === 'function') {
         console.log('Puter.js loaded successfully');
         setIsPuterReady(true);
       } else {

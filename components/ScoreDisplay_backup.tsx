@@ -117,19 +117,15 @@ export default function ScoreDisplay({ analysis, onNewAttempt }: ScoreDisplayPro
         </h3>
 
         {/* Individual Scores Grid */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <ScoreCircle score={analysis.scores.fluencyCoherence} label="Fluency & Coherence" />
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
           <ScoreCircle score={analysis.scores.lexicalResource} label="Lexical Resource" />
           <ScoreCircle score={analysis.scores.grammaticalRange} label="Grammar" />
-          <ScoreCircle score={analysis.scores.pronunciation} label="Pronunciation" />
         </div>
 
         {/* Score Bars */}
         <div className="space-y-4">
-          <ScoreBar score={analysis.scores.fluencyCoherence} label="Fluency & Coherence" />
           <ScoreBar score={analysis.scores.lexicalResource} label="Lexical Resource" />
           <ScoreBar score={analysis.scores.grammaticalRange} label="Grammatical Range & Accuracy" />
-          <ScoreBar score={analysis.scores.pronunciation} label="Pronunciation" />
         </div>
       </div>
 

@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ 
         wordResults,
         totalWords: wordResults.length,
-        averageAccuracy: wordResults.reduce((sum, result) => sum + result.accuracy, 0) / wordResults.length || 75
+        averageAccuracy: wordResults.reduce((sum: number, result: any) => sum + result.accuracy, 0) / wordResults.length || 75
       });
     } catch (apiError: any) {
       console.warn('AI API failed, using fallback:', apiError.message);
@@ -149,11 +149,11 @@ async function analyzePronunciationDetails(transcriptionData: any) {
 
   if (words.length === 0) {
     // Fallback: split text into words and estimate timestamps
-    const wordList = fullText.split(' ').filter(word => word.length > 0);
+    const wordList = fullText.split(' ').filter((word: string) => word.length > 0);
     const duration = transcriptionData.duration || 5;
     const timePerWord = duration / wordList.length;
     
-    return wordList.map((word, index) => ({
+    return wordList.map((word: string, index: number) => ({
       word: word.toLowerCase().replace(/[^\w]/g, ''),
       startTime: index * timePerWord,
       endTime: (index + 1) * timePerWord,
@@ -240,8 +240,8 @@ async function analyzeWordPronunciation(word: string) {
       const { createOpenAIClient } = await import('@/utils/openaiUtils');
       const openai = createOpenAIClient();
       return await analyzeWordWithOpenAI(word, openai);
-    } catch (error) {
-      console.warn(`OpenAI analysis failed for "${word}", using fallback:`, error.message);
+    } catch (error: any) {
+      console.warn(`OpenAI analysis failed for "${word}", using fallback:`, error?.message || 'Unknown error');
       return generateFallbackWordAnalysis(word);
     }
   }
@@ -305,9 +305,9 @@ Respond only with the JSON object.`;
       console.warn('Failed to parse OpenAI response, using fallback');
       return generateFallbackWordAnalysis(word);
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(`OpenAI API error for word "${word}":`, error);
-    throw new Error(`OpenAI API error: ${error.message}`);
+    throw new Error(`OpenAI API error: ${error?.message || 'Unknown error'}`);
   }
 }
 

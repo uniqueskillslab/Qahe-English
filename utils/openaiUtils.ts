@@ -152,18 +152,14 @@ function parseAnalysis(analysisText: string, transcript: string, duration: numbe
     return {
       transcript,
       scores: {
-        fluencyCoherence: parsedAnalysis.scores.fluencyCoherence,
         lexicalResource: parsedAnalysis.scores.lexicalResource,
         grammaticalRange: parsedAnalysis.scores.grammaticalRange,
-        pronunciation: parsedAnalysis.scores.pronunciation,
         overall: parsedAnalysis.scores.overall,
       },
       feedback: {
-        fluencyCoherence: parsedAnalysis.feedback.fluencyCoherence,
         lexicalResource: parsedAnalysis.feedback.lexicalResource,
         grammaticalRange: parsedAnalysis.feedback.grammaticalRange,
-        pronunciation: parsedAnalysis.feedback.pronunciation,
-        overallFeedback: parsedAnalysis.feedback.overallFeedback,
+        overallFeedback: parsedAnalysis.feedback.overallFeedback || `Fluency: ${parsedAnalysis.feedback.fluencyCoherence} Pronunciation: ${parsedAnalysis.feedback.pronunciation}`,
         improvementSuggestions: parsedAnalysis.feedback.improvementSuggestions,
         improvementGuidance: {
           isRelevantResponse: true,
